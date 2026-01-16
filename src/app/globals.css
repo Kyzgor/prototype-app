@@ -1,0 +1,586 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * ==========================================================================
+ * MYSTICAL/ESOTERIC DESIGN SYSTEM
+ * ==========================================================================
+ *
+ * Color Philosophy:
+ * - Deep void backgrounds (dark navy/charcoal, NOT pure black)
+ * - Ethereal violet/purple as primary accent
+ * - Luminous gold/amber as secondary accent
+ * - Celestial cyan for highlights and glows
+ * - Soft off-white text (not pure white)
+ *
+ * Inspired by: occult aesthetics, celestial imagery, tarot, alchemy
+ * ==========================================================================
+ */
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+  --font-serif: var(--font-body);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+
+  /* Semantic color mappings */
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+
+  /* Border radius scale */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  /* Custom mystical colors - available as Tailwind classes */
+  --color-void: var(--void);
+  --color-abyss: var(--abyss);
+  --color-violet: var(--violet);
+  --color-gold: var(--gold);
+  --color-ethereal: var(--ethereal);
+}
+
+/* Light mode (fallback - not primary) */
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  /* Mystical palette (light mode variants) */
+  --void: oklch(0.13 0.02 280);
+  --abyss: oklch(0.18 0.025 280);
+  --violet: oklch(0.55 0.25 290);
+  --gold: oklch(0.75 0.15 75);
+  --ethereal: oklch(0.7 0.15 220);
+}
+
+/*
+ * ==========================================================================
+ * DARK MODE - MYSTICAL THEME (PRIMARY)
+ * ==========================================================================
+ */
+.dark {
+  /*
+   * Background scale (from darkest to lighter elevated surfaces)
+   * Using deep navy with subtle purple undertones - NOT pure black
+   */
+  --background: oklch(0.11 0.025 280);        /* Deep void - main bg */
+  --foreground: oklch(0.93 0.01 280);         /* Soft ethereal white */
+
+  /* Card/elevated surfaces - slightly lighter than bg for depth */
+  --card: oklch(0.15 0.03 280);               /* Raised surface */
+  --card-foreground: oklch(0.93 0.01 280);
+
+  /* Popover/dropdown - even more elevated */
+  --popover: oklch(0.17 0.035 280);
+  --popover-foreground: oklch(0.93 0.01 280);
+
+  /*
+   * Primary - Mystical Violet
+   * The main action color, ethereal purple
+   */
+  --primary: oklch(0.65 0.22 290);            /* Luminous violet */
+  --primary-foreground: oklch(0.98 0.005 290);
+
+  /*
+   * Secondary - Muted violet for less emphasis
+   */
+  --secondary: oklch(0.22 0.04 280);
+  --secondary-foreground: oklch(0.88 0.02 280);
+
+  /* Muted elements */
+  --muted: oklch(0.20 0.03 280);
+  --muted-foreground: oklch(0.65 0.02 280);   /* ~60% opacity equivalent */
+
+  /*
+   * Accent - Luminous Gold
+   * For highlights, special elements, mystical emphasis
+   */
+  --accent: oklch(0.75 0.14 75);              /* Alchemical gold */
+  --accent-foreground: oklch(0.15 0.02 75);
+
+  /* Destructive - Ethereal red/crimson */
+  --destructive: oklch(0.60 0.22 25);
+
+  /* Borders - subtle, ethereal */
+  --border: oklch(0.28 0.04 280);
+  --input: oklch(0.25 0.035 280);
+  --ring: oklch(0.65 0.22 290);               /* Matches primary */
+
+  /*
+   * Chart colors - Mystical palette
+   * Violet, Gold, Ethereal Cyan, Rose, Emerald
+   */
+  --chart-1: oklch(0.65 0.22 290);            /* Violet */
+  --chart-2: oklch(0.75 0.14 75);             /* Gold */
+  --chart-3: oklch(0.70 0.15 220);            /* Ethereal cyan */
+  --chart-4: oklch(0.65 0.18 350);            /* Mystic rose */
+  --chart-5: oklch(0.60 0.15 160);            /* Arcane emerald */
+
+  /* Sidebar */
+  --sidebar: oklch(0.13 0.025 280);
+  --sidebar-foreground: oklch(0.93 0.01 280);
+  --sidebar-primary: oklch(0.65 0.22 290);
+  --sidebar-primary-foreground: oklch(0.98 0.005 290);
+  --sidebar-accent: oklch(0.20 0.03 280);
+  --sidebar-accent-foreground: oklch(0.88 0.02 280);
+  --sidebar-border: oklch(0.25 0.035 280);
+  --sidebar-ring: oklch(0.65 0.22 290);
+
+  /*
+   * Custom mystical tokens
+   * Use with: bg-void, text-gold, border-violet, etc.
+   */
+  --void: oklch(0.08 0.02 280);               /* Deepest darkness */
+  --abyss: oklch(0.11 0.025 280);             /* Main background */
+  --violet: oklch(0.65 0.22 290);             /* Primary violet */
+  --gold: oklch(0.75 0.14 75);                /* Accent gold */
+  --ethereal: oklch(0.70 0.15 220);           /* Celestial cyan */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body), ui-serif, Georgia, serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+}
+
+/*
+ * ==========================================================================
+ * MYSTICAL UTILITY CLASSES
+ * ==========================================================================
+ */
+
+/* Ethereal glow effects (use instead of shadows in dark mode) */
+.glow-violet {
+  box-shadow: 0 0 20px oklch(0.65 0.22 290 / 30%),
+              0 0 40px oklch(0.65 0.22 290 / 15%);
+}
+
+.glow-gold {
+  box-shadow: 0 0 20px oklch(0.75 0.14 75 / 30%),
+              0 0 40px oklch(0.75 0.14 75 / 15%);
+}
+
+.glow-ethereal {
+  box-shadow: 0 0 20px oklch(0.70 0.15 220 / 30%),
+              0 0 40px oklch(0.70 0.15 220 / 15%);
+}
+
+/* Text glow for emphasis */
+.text-glow {
+  text-shadow: 0 0 10px currentColor;
+}
+
+/* Mystical gradient backgrounds */
+.bg-gradient-mystic {
+  background: linear-gradient(
+    135deg,
+    oklch(0.11 0.025 280) 0%,
+    oklch(0.15 0.04 290) 50%,
+    oklch(0.11 0.025 280) 100%
+  );
+}
+
+.bg-gradient-celestial {
+  background: linear-gradient(
+    180deg,
+    oklch(0.08 0.02 280) 0%,
+    oklch(0.13 0.03 260) 100%
+  );
+}
+
+/* Glass/frosted effect for cards and overlays */
+.glass {
+  background: oklch(0.15 0.03 280 / 80%);
+  backdrop-filter: blur(12px);
+  border: 1px solid oklch(0.30 0.04 280 / 50%);
+}
+
+/*
+ * ==========================================================================
+ * ANIMATIONS
+ * ==========================================================================
+ */
+
+/* Fade in and up */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Fade in */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+}
+
+/* Scale in */
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s ease-out forwards;
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px oklch(0.65 0.22 290 / 30%),
+                0 0 40px oklch(0.65 0.22 290 / 15%);
+  }
+  50% {
+    box-shadow: 0 0 30px oklch(0.65 0.22 290 / 50%),
+                0 0 60px oklch(0.65 0.22 290 / 25%);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* Slow pulse for mystical elements */
+@keyframes breathe {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.animate-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+/* Delayed animations */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-1000 { animation-delay: 1000ms; }
+.delay-1500 { animation-delay: 1500ms; }
+.delay-2000 { animation-delay: 2000ms; }
+.delay-2500 { animation-delay: 2500ms; }
+.delay-3000 { animation-delay: 3000ms; }
+.delay-3500 { animation-delay: 3500ms; }
+.delay-4000 { animation-delay: 4000ms; }
+.delay-4500 { animation-delay: 4500ms; }
+.delay-5000 { animation-delay: 5000ms; }
+
+/* Initially hidden for delayed animations */
+.opacity-0 { opacity: 0; }
+
+/*
+ * ==========================================================================
+ * TYPOGRAPHY UTILITIES
+ * ==========================================================================
+ */
+
+/* Font families */
+.font-display {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+}
+
+.font-body {
+  font-family: var(--font-body), ui-serif, Georgia, serif;
+}
+
+/* Display headings - powerful, mystical */
+.text-display-xl {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  line-height: 1.1;
+}
+
+.text-display-lg {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+}
+
+.text-display-md {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.3;
+}
+
+.text-display-sm {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  line-height: 1.4;
+}
+
+/* Body text - elegant, readable */
+.text-body-lg {
+  font-family: var(--font-body), ui-serif, Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.7;
+}
+
+.text-body {
+  font-family: var(--font-body), ui-serif, Georgia, serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  letter-spacing: 0.015em;
+  line-height: 1.7;
+}
+
+.text-body-sm {
+  font-family: var(--font-body), ui-serif, Georgia, serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.6;
+}
+
+/* Accent text - for special emphasis */
+.text-accent-display {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Caption/label text */
+.text-caption {
+  font-family: var(--font-body), ui-serif, Georgia, serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+}
+
+.text-label {
+  font-family: var(--font-display), ui-serif, Georgia, serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/*
+ * ==========================================================================
+ * SIGNAL INTERFERENCE EFFECTS
+ * ==========================================================================
+ */
+
+/* Scan lines overlay */
+.scan-lines {
+  position: relative;
+}
+
+.scan-lines::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* Flicker animation */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  92% { opacity: 1; }
+  93% { opacity: 0.8; }
+  94% { opacity: 1; }
+  97% { opacity: 0.9; }
+  98% { opacity: 1; }
+}
+
+.animate-flicker {
+  animation: flicker 4s ease-in-out infinite;
+}
+
+/* Signal interference */
+@keyframes signal-interference {
+  0%, 100% {
+    transform: translateX(0) skewX(0deg);
+    opacity: 1;
+  }
+  93% {
+    transform: translateX(0) skewX(0deg);
+    opacity: 1;
+  }
+  94% {
+    transform: translateX(-2px) skewX(-0.5deg);
+    opacity: 0.9;
+  }
+  95% {
+    transform: translateX(2px) skewX(0.5deg);
+    opacity: 0.95;
+  }
+  96% {
+    transform: translateX(-1px) skewX(0deg);
+    opacity: 1;
+  }
+}
+
+.animate-signal {
+  animation: signal-interference 3s ease-in-out infinite;
+}
+
+/* Chromatic aberration on hover/active */
+.chromatic-aberration {
+  position: relative;
+}
+
+.chromatic-aberration::before,
+.chromatic-aberration::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.chromatic-aberration::before {
+  color: rgba(255, 0, 0, 0.5);
+  transform: translateX(-2px);
+  mix-blend-mode: screen;
+}
+
+.chromatic-aberration::after {
+  color: rgba(0, 255, 255, 0.5);
+  transform: translateX(2px);
+  mix-blend-mode: screen;
+}
+
+.chromatic-aberration:hover::before,
+.chromatic-aberration:hover::after,
+.chromatic-aberration.active::before,
+.chromatic-aberration.active::after {
+  opacity: 1;
+}
+
+/*
+ * ==========================================================================
+ * FORCE LIGHT MODE
+ * Override browser dark mode extensions (Opera, Dark Reader, etc.)
+ * ==========================================================================
+ */
+[data-theme="light"],
+.force-light {
+  color-scheme: light !important;
+  forced-color-adjust: none !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+[data-theme="light"] *,
+.force-light * {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
