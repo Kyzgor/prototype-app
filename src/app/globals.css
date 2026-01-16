@@ -464,6 +464,56 @@
 
 /*
  * ==========================================================================
+ * MOBILE RESPONSIVE UTILITIES
+ * ==========================================================================
+ */
+
+/* Mobile-friendly button sizing */
+.btn-responsive {
+  @apply px-6 py-4 text-base;
+}
+
+@media (min-width: 640px) {
+  .btn-responsive {
+    @apply px-10 py-6 text-lg;
+  }
+}
+
+@media (min-width: 768px) {
+  .btn-responsive {
+    @apply px-14 py-8 text-xl;
+  }
+}
+
+/* Mobile-friendly container */
+.container-responsive {
+  @apply w-full px-4;
+}
+
+@media (min-width: 640px) {
+  .container-responsive {
+    @apply px-6;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-responsive {
+    @apply px-8;
+  }
+}
+
+/* Hide on mobile, show on desktop */
+.hide-mobile {
+  @apply hidden sm:block;
+}
+
+/* Show on mobile, hide on desktop */
+.show-mobile {
+  @apply block sm:hidden;
+}
+
+/*
+ * ==========================================================================
  * SIGNAL INTERFERENCE EFFECTS
  * ==========================================================================
  */

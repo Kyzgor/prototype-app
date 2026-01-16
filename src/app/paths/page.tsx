@@ -8,10 +8,10 @@ export default function PathsPage() {
   return (
     <PageWrapper>
       <div className="flex flex-col items-center text-center space-y-8">
-        <h1 className="text-4xl font-bold tracking-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
           Path Selection
         </h1>
-        <p className="text-lg text-muted-foreground max-w-md">
+        <p className="text-base sm:text-lg text-muted-foreground max-w-md">
           Choose your path to continue the experience.
         </p>
 

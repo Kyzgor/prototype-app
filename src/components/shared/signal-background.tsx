@@ -402,13 +402,13 @@ const VARIANT_LABELS: Record<SignalVariant, string> = {
 
 export function BackgroundSwitcher({ currentVariant, onSwitch }: BackgroundSwitcherProps) {
   return (
-    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex gap-1 p-1 rounded-lg glass border border-violet/20">
+    <div className="fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 z-50 flex gap-0.5 sm:gap-1 p-0.5 sm:p-1 rounded-lg glass border border-violet/20">
       {(Object.keys(VARIANT_LABELS) as SignalVariant[]).map((variant) => (
         <button
           key={variant}
           onClick={() => onSwitch(variant)}
           className={`
-            px-4 py-2 text-xs font-display tracking-[0.15em] uppercase transition-all duration-300
+            px-2 py-1.5 sm:px-4 sm:py-2 text-[10px] sm:text-xs font-display tracking-[0.08em] sm:tracking-[0.15em] uppercase transition-all duration-300
             ${currentVariant === variant
               ? "bg-violet/30 text-foreground glow-violet"
               : "text-muted-foreground hover:text-foreground hover:bg-white/5"

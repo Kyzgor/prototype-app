@@ -697,10 +697,10 @@ export function CoherenceMap({ variant, onStabilized }: CoherenceMapProps) {
   }[variant];
 
   return (
-    <div className="flex flex-col items-center justify-center w-full max-w-2xl mx-auto">
+    <div className="flex flex-col items-center justify-center w-full max-w-2xl mx-auto px-4 sm:px-0">
       {/* Coherence visualization */}
       <motion.div
-        className="w-full aspect-square max-w-md mb-8 relative"
+        className="w-full aspect-square max-w-xs sm:max-w-md mb-6 sm:mb-8 relative"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
@@ -708,9 +708,9 @@ export function CoherenceMap({ variant, onStabilized }: CoherenceMapProps) {
         <MapComponent stability={stability} signatures={signatures} />
 
         {/* Stability percentage overlay */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-center">
-          <div className="text-label text-muted-foreground mb-1">COHERENCE</div>
-          <div className="text-display-md text-violet font-display">
+        <div className="absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 text-center">
+          <div className="text-xs sm:text-label text-muted-foreground mb-0.5 sm:mb-1">COHERENCE</div>
+          <div className="text-lg sm:text-display-md text-violet font-display">
             {Math.round(stability * 100)}%
           </div>
         </div>
@@ -718,25 +718,25 @@ export function CoherenceMap({ variant, onStabilized }: CoherenceMapProps) {
 
       {/* Status text */}
       <motion.div
-        className="text-center mb-8"
+        className="text-center mb-6 sm:mb-8 px-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.5 }}
       >
         {!userSigned ? (
-          <p className="text-body text-muted-foreground">
+          <p className="text-sm sm:text-body text-muted-foreground">
             <GlitchText intensity="low">
               The signal awaits your resonance
             </GlitchText>
           </p>
         ) : isStabilized ? (
-          <p className="text-body text-gold text-glow">
+          <p className="text-sm sm:text-body text-gold text-glow">
             <GlitchText intensity="low">
               Coherence achieved. The signal is stable.
             </GlitchText>
           </p>
         ) : (
-          <p className="text-body text-muted-foreground">
+          <p className="text-sm sm:text-body text-muted-foreground">
             <GlitchText intensity="medium">
               {signatures.length} resonance{signatures.length !== 1 ? "s" : ""} detected...
               {stability < 0.3 && " Signal unstable"}
@@ -760,7 +760,7 @@ export function CoherenceMap({ variant, onStabilized }: CoherenceMapProps) {
             <Button
               size="lg"
               onClick={handleSign}
-              className="glow-violet hover:glow-gold transition-all duration-500 font-display tracking-[0.15em] text-lg px-10 py-7 h-auto uppercase border border-violet/20"
+              className="glow-violet hover:glow-gold transition-all duration-500 font-display tracking-[0.15em] text-base px-6 py-5 sm:text-lg sm:px-10 sm:py-7 h-auto uppercase border border-violet/20"
             >
               <GlitchText intensity="medium">
                 Add Your Signature
@@ -793,12 +793,12 @@ export function CoherenceMapSwitcher({
   const variants: CoherenceVariant[] = ["geometry", "neural", "waveform", "energy"];
 
   return (
-    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex gap-2 p-1 rounded-lg bg-abyss/80 backdrop-blur-sm border border-violet/20">
+    <div className="fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 z-50 flex gap-0.5 sm:gap-2 p-0.5 sm:p-1 rounded-lg bg-abyss/80 backdrop-blur-sm border border-violet/20 max-w-[calc(100vw-1rem)] overflow-x-auto">
       {variants.map((variant) => (
         <button
           key={variant}
           onClick={() => onSwitch(variant)}
-          className={`px-3 py-1.5 text-sm font-display tracking-wider uppercase transition-all duration-300 rounded ${
+          className={`px-1.5 py-1 text-[9px] sm:px-3 sm:py-1.5 sm:text-sm font-display tracking-wide sm:tracking-wider uppercase transition-all duration-300 rounded whitespace-nowrap flex-shrink-0 ${
             currentVariant === variant
               ? "bg-violet/30 text-foreground"
               : "text-muted-foreground hover:text-foreground hover:bg-violet/10"

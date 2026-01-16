@@ -131,7 +131,7 @@ function LandingSequence({ onPhaseChange, onBreakthrough, onEnterCoherence }: {
   }, [onPhaseChange, onBreakthrough]);
 
   return (
-    <main className="relative z-10 flex flex-col items-center justify-center text-center px-6 w-full min-h-screen">
+    <main className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 w-full min-h-screen">
       {/* Breakthrough shockwave effect */}
       <BreakthroughEffect trigger={showBreakthrough} />
 
@@ -163,7 +163,7 @@ function LandingSequence({ onPhaseChange, onBreakthrough, onEnterCoherence }: {
               y: { duration: 0.5, ease: "easeOut" },
             }}
           >
-            <h1 className="text-display-xl text-foreground uppercase max-w-5xl px-6 animate-flicker">
+            <h1 className="text-display-xl text-foreground uppercase max-w-5xl px-4 sm:px-6 animate-flicker">
               <motion.span
                 initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -225,7 +225,7 @@ function LandingSequence({ onPhaseChange, onBreakthrough, onEnterCoherence }: {
               ease: [0.25, 0.1, 0.25, 1]
             }}
           >
-            <h2 className="text-display-xl text-foreground uppercase max-w-5xl px-6 animate-flicker">
+            <h2 className="text-display-xl text-foreground uppercase max-w-5xl px-4 sm:px-6 animate-flicker">
               <motion.span
                 initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
                 animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -261,7 +261,7 @@ function LandingSequence({ onPhaseChange, onBreakthrough, onEnterCoherence }: {
           >
             {/* Video player */}
             <motion.div
-              className="w-full max-w-2xl mb-14"
+              className="w-full max-w-2xl mb-8 sm:mb-14"
               initial={{ opacity: 0, scale: 0.95, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{
@@ -317,7 +317,7 @@ function LandingSequence({ onPhaseChange, onBreakthrough, onEnterCoherence }: {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.5, delay: 1.5, ease: "easeOut" }}
-              className="mb-10"
+              className="mb-6 sm:mb-10"
             >
               <motion.div
                 whileHover={{
@@ -331,7 +331,7 @@ function LandingSequence({ onPhaseChange, onBreakthrough, onEnterCoherence }: {
                 <Button
                   size="lg"
                   onClick={onEnterCoherence}
-                  className="glow-violet hover:glow-gold transition-all duration-700 font-display tracking-[0.15em] text-xl px-14 py-9 h-auto uppercase border border-violet/20"
+                  className="glow-violet hover:glow-gold transition-all duration-700 font-display tracking-[0.1em] sm:tracking-[0.15em] text-base sm:text-lg md:text-xl px-6 py-4 sm:px-10 sm:py-6 md:px-14 md:py-9 h-auto uppercase border border-violet/20"
                 >
                   <GlitchText intensity="medium" active={true}>
                     Stabilise the Signal
@@ -342,7 +342,7 @@ function LandingSequence({ onPhaseChange, onBreakthrough, onEnterCoherence }: {
 
             {/* Supporting text */}
             <motion.p
-              className="text-body text-muted-foreground/50 max-w-lg leading-relaxed"
+              className="text-body text-muted-foreground/50 max-w-lg leading-relaxed px-2 sm:px-0"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 2, delay: 2.2, ease: "easeOut" }}
@@ -518,7 +518,7 @@ export default function LandingPage() {
 
       {/* Coherence Map Phase */}
       {phase === "coherence" && (
-        <main className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-20">
+        <main className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6 py-12 sm:py-20">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -527,7 +527,7 @@ export default function LandingPage() {
           >
             {/* Title */}
             <motion.h2
-              className="text-display-lg text-foreground text-center mb-8"
+              className="text-display-lg text-foreground text-center mb-6 sm:mb-8"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -549,7 +549,7 @@ export default function LandingPage() {
 
       {/* Final Phase - After Coherence Stabilized */}
       {phase === "final" && (
-        <main className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6">
+        <main className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 sm:px-6">
           <motion.div
             className="flex flex-col items-center justify-center w-full max-w-4xl"
             initial={{ opacity: 0 }}
@@ -558,7 +558,7 @@ export default function LandingPage() {
           >
             {/* Success Message */}
             <motion.h2
-              className="text-display-lg text-gold text-glow text-center mb-6"
+              className="text-display-lg text-gold text-glow text-center mb-4 sm:mb-6"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3, duration: 1 }}
@@ -569,7 +569,7 @@ export default function LandingPage() {
             </motion.h2>
 
             <motion.p
-              className="text-body text-muted-foreground text-center mb-12 max-w-xl"
+              className="text-body text-muted-foreground text-center mb-8 sm:mb-12 max-w-xl px-2 sm:px-0"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.8, duration: 1 }}
@@ -581,7 +581,7 @@ export default function LandingPage() {
 
             {/* Video player placeholder */}
             <motion.div
-              className="w-full max-w-2xl mb-14"
+              className="w-full max-w-2xl mb-8 sm:mb-14"
               initial={{ opacity: 0, scale: 0.95, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 1 }}
@@ -644,7 +644,7 @@ export default function LandingPage() {
               >
                 <Button
                   size="lg"
-                  className="glow-gold hover:glow-violet transition-all duration-700 font-display tracking-[0.15em] text-xl px-14 py-9 h-auto uppercase border border-gold/20"
+                  className="glow-gold hover:glow-violet transition-all duration-700 font-display tracking-[0.1em] sm:tracking-[0.15em] text-base sm:text-lg md:text-xl px-6 py-4 sm:px-10 sm:py-6 md:px-14 md:py-9 h-auto uppercase border border-gold/20"
                 >
                   <GlitchText intensity="low">
                     Continue the Journey

@@ -14,7 +14,7 @@ export function PageWrapper({ children, className }: PageWrapperProps) {
         className
       )}
     >
-      <main className="w-full max-w-5xl px-6 py-12">{children}</main>
+      <main className="w-full max-w-5xl px-4 py-8 sm:px-6 sm:py-12">{children}</main>
     </div>
   );
 }
